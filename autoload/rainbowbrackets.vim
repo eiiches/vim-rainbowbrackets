@@ -27,11 +27,11 @@ endif
 if !exists('g:rainbowbrackets_colors')
 	let g:rainbowbrackets_colors =
 				\ [
-				\	'red',
-				\	'green',
-				\	'yellow',
-				\	'blue',
-				\	'magenta',
+				\	'ctermfg=red',
+				\	'ctermfg=green',
+				\	'ctermfg=yellow',
+				\	'ctermfg=blue',
+				\	'ctermfg=magenta',
 				\ ]
 endif
 
@@ -69,7 +69,7 @@ endfunction
 function! s:highlight()
 	for level in range(1, g:rainbowbrackets_maxlevel)
 		let color = g:rainbowbrackets_colors[(level - 1) % len(g:rainbowbrackets_colors)]
-		execute 'highlight default bracketlevel'.level 'ctermfg='.color
+		execute 'highlight default bracketlevel'.level color
 	endfor
 endfunction
 
